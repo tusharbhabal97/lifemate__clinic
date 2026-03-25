@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import DotCluster from "../shared/DotCluster";
 
 const HeartIcon = () => (
@@ -150,19 +151,29 @@ const categories = [
 
 function ServiceCard({ title, text, Icon }) {
   return (
-    <article className="rounded-[22px] border-2 border-[#9ed9fa] bg-[#f3f8fc] p-7 shadow-[0_12px_24px_rgba(0,0,0,0.05)]">
-      <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-[#deefff] text-[#0084d4]">
+    <article className="rounded-[18px] border-2 border-[#9ed9fa] bg-[#f3f8fc] p-6 shadow-[0_10px_20px_rgba(0,0,0,0.05)] transition hover:-translate-y-1 hover:shadow-[0_16px_28px_rgba(0,0,0,0.08)]">
+      <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[#deefff] text-[#0084d4]">
         <Icon />
       </div>
-      <h4 className="text-[22px] font-semibold leading-snug text-[#0069ab]">{title}</h4>
-      <p className="mt-3 text-[15px] leading-7 text-[#5d5d5d]">{text}</p>
+      <h4 className="text-[20px] font-semibold leading-snug text-[#0069ab]">{title}</h4>
+      <p className="mt-2 text-[14px] leading-6 text-[#5d5d5d] overflow-hidden text-ellipsis whitespace-nowrap">{text}</p>
     </article>
   );
 }
 
 export default function ServicesSection() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const activeCategory = categories[activeIndex];
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % categories.length);
+    }, 5000);
+
+    return () => clearInterval(intervalId);
+  }, []);
   return (
-    <section id="services" className="relative bg-[#edf3f7] py-20">
+    <section id="services" className="relative bg-[#edf3f7] py-16 md:py-18 lg:py-20">
       <DotCluster className="absolute left-20 top-20" />
       <div className="mx-auto w-full max-w-[1320px] px-5 lg:px-6">
         <h3 className="text-center text-[36px] font-bold text-[#3d3d3d] md:text-[46px] lg:text-[56px]">
@@ -172,26 +183,42 @@ export default function ServicesSection() {
           Lifemate Clinic provides coordinated cardiac, vascular, diabetic, and general medical services for patients in JM Road, Deccan Gymkhana, and nearby Pune areas.
         </p>
 
-        <div className="mt-12 space-y-12">
-          {categories.map((category) => {
-            const Icon = category.icon;
-            return (
-              <div key={category.title}>
-                <div className="flex items-center justify-center gap-3">
-                  <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#deefff] text-[#0084d4]">
-                    <Icon />
-                  </span>
-                  <h4 className="text-center text-[26px] font-semibold text-[#0069ab] md:text-[32px]">{category.title}</h4>
-                </div>
+        <div className="mt-10">
+          <div className="flex flex-wrap justify-center gap-3">
+            {categories.map((category, index) => (
+              <button
+                key={category.title}
+                type="button"
+                onClick={() => setActiveIndex(index)}
+                className={`rounded-full border px-5 py-2 text-[14px] font-semibold transition ${
+                  activeIndex === index
+                    ? "border-[#2cbeff] bg-[#deefff] text-[#0069ab] shadow-[0_8px_16px_rgba(0,0,0,0.08)]"
+                    : "border-[#d7ecfb] bg-white text-[#4f4f4f] hover:border-[#9ed9fa] hover:text-[#0069ab]"
+                }`}
+                aria-pressed={activeIndex === index}
+              >
+                {category.title}
+              </button>
+            ))}
+          </div>
 
-                <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-                  {category.services.map((service) => (
-                    <ServiceCard key={service.title} {...service} Icon={Icon} />
-                  ))}
-                </div>
-              </div>
-            );
-          })}
+          <div
+            key={activeIndex}
+            className="services-zoom mt-8 rounded-[24px] border-2 border-[#cfeafb] bg-white/60 p-6 shadow-[0_16px_28px_rgba(0,0,0,0.06)] md:p-8"
+          >
+            <div className="flex items-center justify-center gap-3">
+              <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-[#deefff] text-[#0084d4]">
+                <activeCategory.icon />
+              </span>
+              <h4 className="text-center text-[24px] font-semibold text-[#0069ab] md:text-[28px]">{activeCategory.title}</h4>
+            </div>
+
+            <div className="mt-6 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+              {activeCategory.services.map((service) => (
+                <ServiceCard key={service.title} {...service} Icon={activeCategory.icon} />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
