@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+:root {
+  --brand-50: #eff9ff;
+  --brand-100: #def1ff;
+  --brand-200: #b6e6ff;
+  --brand-300: #75d4ff;
+  --brand-400: #2cbeff;
+  --brand-500: #00a4f4;
+  --brand-600: #0084d4;
+  --brand-700: #0069ab;
+  --brand-800: #00598d;
+  --brand-900: #064a74;
+  --brand-950: #042f4d;
+
+  --neutral-50: #f6f6f6;
+  --neutral-100: #e7e7e7;
+  --neutral-200: #d1d1d1;
+  --neutral-300: #b0b0b0;
+  --neutral-400: #888888;
+  --neutral-500: #6d6d6d;
+  --neutral-600: #5d5d5d;
+  --neutral-700: #4f4f4f;
+  --neutral-800: #454545;
+  --neutral-900: #3d3d3d;
+  --neutral-950: #000000;
+}
+
+@theme inline {
+  --color-brand-50: var(--brand-50);
+  --color-brand-100: var(--brand-100);
+  --color-brand-200: var(--brand-200);
+  --color-brand-300: var(--brand-300);
+  --color-brand-400: var(--brand-400);
+  --color-brand-500: var(--brand-500);
+  --color-brand-600: var(--brand-600);
+  --color-brand-700: var(--brand-700);
+  --color-brand-800: var(--brand-800);
+  --color-brand-900: var(--brand-900);
+  --color-brand-950: var(--brand-950);
+  --color-neutral-50: var(--neutral-50);
+  --color-neutral-100: var(--neutral-100);
+  --color-neutral-200: var(--neutral-200);
+  --color-neutral-300: var(--neutral-300);
+  --color-neutral-400: var(--neutral-400);
+  --color-neutral-500: var(--neutral-500);
+  --color-neutral-600: var(--neutral-600);
+  --color-neutral-700: var(--neutral-700);
+  --color-neutral-800: var(--neutral-800);
+  --color-neutral-900: var(--neutral-900);
+  --color-neutral-950: var(--neutral-950);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Lato", "Segoe UI", sans-serif;
+  color: #3d3d3d;
+  background: #edf3f7;
+}
+
+a {
+  text-decoration: none;
+}
