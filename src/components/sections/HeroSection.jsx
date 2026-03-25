@@ -21,17 +21,31 @@ export default function HeroSection() {
 
       <div className="relative z-10 mx-auto grid w-full max-w-[1320px] gap-8 px-5 lg:grid-cols-[1.03fr_0.97fr] lg:items-start lg:px-6">
         <div className="pt-6 lg:pt-16">
-          <h1 className="max-w-[660px] text-[38px] font-bold leading-[1.06] tracking-[-0.02em] text-[#3d3d3d] md:text-[52px] lg:text-[64px]">
-            Trusted <span className="bg-gradient-to-r from-[#0084d4] to-[#75d4ff] bg-clip-text text-transparent">heart care partner</span>
+          <h1 className="max-w-[700px] text-[38px] font-bold leading-[1.06] tracking-[-0.02em] text-[#3d3d3d] md:text-[52px] lg:text-[64px]">
+            Complete Care for{" "}
+            <span className="bg-gradient-to-r from-[#0084d4] to-[#75d4ff] bg-clip-text text-transparent">
+              You and Your Family
+            </span>
             <br />
-            in Pune.
+            Every Step of the Way
           </h1>
 
-          <p className="mt-7 max-w-[690px] text-[15px] leading-[1.55] text-[#4f4f4f]">
+          <div className="mt-5 flex flex-wrap gap-3">
+            {["Heart Care", "Vein Care", "Diabetes Care", "General Health"].map((badge) => (
+              <span
+                key={badge}
+                className="rounded-full border border-[#bfe6fb] bg-white px-4 py-2 text-[13px] font-semibold text-[#0069ab] shadow-[0_8px_16px_rgba(0,0,0,0.06)]"
+              >
+                {badge}
+              </span>
+            ))}
+          </div>
+
+          <p className="mt-7 max-w-[700px] text-[15px] leading-[1.55] text-[#4f4f4f]">
             <span className="font-semibold text-[#0084d4]">
-              Lifemate Clinic on {clinicInfo.area} provides evidence-based cardiac and preventive care.
+              Lifemate Clinic on {clinicInfo.area} now delivers coordinated cardiac, vascular, diabetic, and general clinical care.
             </span>{" "}
-            Consult with {clinicInfo.doctorName}, {clinicInfo.speciality}, for chest pain evaluation, blood pressure management, cholesterol risk assessment, ECG guidance, and long-term heart health planning. Book your appointment today for focused and compassionate care.
+            Consult with {clinicInfo.doctorName}, {clinicInfo.speciality}, for cardiac evaluation and preventive guidance, while our clinical team supports vein care, diabetes management, and everyday medical concerns with clear, evidence-based treatment plans.
           </p>
 
           <a

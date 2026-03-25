@@ -12,7 +12,7 @@ export default function StorySection() {
             <img src="/images/story-team.png" alt="Medical team" className="h-[280px] w-full rounded-[22px] border-2 border-[#9ed9fa] object-cover md:h-[360px] lg:h-[430px]" />
             <div className="pt-2">
               <p className="text-[16px] leading-8 text-[#5d5d5d]">
-                {clinicInfo.name} is a Pune-based practice focused on personalized and ethical heart care. Led by {clinicInfo.doctorName}, the clinic combines interventional cardiology expertise with preventive care so patients can manage both current symptoms and long-term cardiovascular risk. Our approach prioritizes clear communication, accurate diagnosis, and practical treatment plans.
+                {clinicInfo.name} is a Pune-based practice delivering coordinated cardiac, vascular, diabetic, and general medical care. Led by {clinicInfo.doctorName}, the clinic blends interventional cardiology expertise with preventive services and everyday clinical care so patients can manage current symptoms and long-term health risks. Our approach prioritizes clear communication, accurate diagnosis, and practical treatment plans.
               </p>
               <p className="mt-4 text-[15px] leading-7 text-[#5d5d5d]">
                 Address: {clinicInfo.address}

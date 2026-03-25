@@ -4,7 +4,7 @@ import DotCluster from "../shared/DotCluster";
 const doctors = [
   {
     name: "Dr. Swapnil D. Mate (Interventional Cardiologist)",
-    desc: "Focused on interventional and preventive cardiology, Dr. Mate works on early diagnosis, risk reduction, and long-term cardiovascular outcomes.",
+    desc: "Focused on interventional and preventive cardiology, Dr. Mate supports early diagnosis, risk reduction, and long-term cardiovascular outcomes.",
     experience: "10+ years in interventional cardiology",
     image: "/images/specialist-female.png",
   },
@@ -15,9 +15,9 @@ const doctors = [
     image: "/images/specialist-male.png",
   },
   {
-    name: "Lifemate Cardiac Care Team",
-    desc: "Our clinical support team helps with appointment coordination, diagnostics, follow-up scheduling, and patient education for continuity of care.",
-    experience: "10+ years in coordinated cardiac care",
+    name: "Lifemate Clinical Care Team",
+    desc: "Our clinical support team coordinates diagnostics, vascular and diabetes care planning, follow-up scheduling, and patient education for continuity of care.",
+    experience: "10+ years in coordinated clinical care",
     image: "/images/specialist-male.png",
   },
 ];
@@ -30,8 +30,8 @@ export default function SpecialistsSection() {
       <DotCluster className="absolute right-[260px] bottom-[100px]" />
 
       <div className="mx-auto max-w-[1320px] px-5 lg:px-6">
-        <h3 className="text-center text-[36px] font-bold text-[#3d3d3d] md:text-[46px] lg:text-[56px]"><span className="text-[#2cbeff]">Cardiac Specialists:</span><br />Meet our core care team</h3>
-        <p className="mx-auto mt-6 max-w-[980px] text-center text-[16px] leading-8 text-[#888888]">Lifemate Clinic combines specialist consultation with a dedicated support team for complete cardiology care in Pune.</p>
+        <h3 className="text-center text-[36px] font-bold text-[#3d3d3d] md:text-[46px] lg:text-[56px]"><span className="text-[#2cbeff]">Clinical Specialists:</span><br />Meet our core care team</h3>
+        <p className="mx-auto mt-6 max-w-[980px] text-center text-[16px] leading-8 text-[#888888]">Lifemate Clinic combines specialist consultation with a dedicated support team for complete cardiac, vascular, diabetic, and general care in Pune.</p>
 
         {doctors.map((doctor) => {
           const nameMatch = doctor.name.match(/^(.*)\s\((.*)\)$/);
