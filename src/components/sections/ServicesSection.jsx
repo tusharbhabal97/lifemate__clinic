@@ -151,12 +151,13 @@ const categories = [
 
 function ServiceCard({ title, text, Icon }) {
   return (
-    <article className="rounded-[18px] border-2 border-[#9ed9fa] bg-[#f3f8fc] p-6 shadow-[0_10px_20px_rgba(0,0,0,0.05)] transition hover:-translate-y-1 hover:shadow-[0_16px_28px_rgba(0,0,0,0.08)]">
-      <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[#deefff] text-[#0084d4]">
+    <article className="service-card group rounded-[20px] border-2 border-[#9ed9fa] bg-[#f3f8fc] p-6 shadow-[0_10px_20px_rgba(0,0,0,0.05)] transition hover:-translate-y-1 hover:shadow-[0_18px_32px_rgba(0,0,0,0.1)]">
+      <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[#deefff] text-[#0084d4] transition group-hover:scale-[1.03]">
         <Icon />
       </div>
       <h4 className="text-[20px] font-semibold leading-snug text-[#0069ab]">{title}</h4>
-      <p className="mt-2 text-[14px] leading-6 text-[#5d5d5d] overflow-hidden text-ellipsis whitespace-nowrap">{text}</p>
+      <div className="mt-3 h-[2px] w-10 rounded-full bg-[#cfeafb]" />
+      <p className="mt-3 text-[14px] leading-6 text-[#5d5d5d]">{text}</p>
     </article>
   );
 }
